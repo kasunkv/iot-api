@@ -1,0 +1,29 @@
+{
+  "name": "iot-api",
+  "version": "1.0.0",
+  "description": "Simple API for IoT Project",
+  "main": "app.js",
+  "dependencies": {
+    "cors": "^2.7.1",
+    "mongoose": "^4.1.1",
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kasunkv/iot-api.git"
+  },
+  "keywords": [
+    "iot"
+  ],
+  "author": "Kasun Kodagoda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kasunkv/iot-api/issues"
+  },
+  "homepage": "https://github.com/kasunkv/iot-api#readme"
+}
