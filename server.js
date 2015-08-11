@@ -8,7 +8,7 @@ var cors = require('cors');
 mongoose.connect('mongodb://localhost:27017/tempDB');
 
 var app = express();
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 88;
 
 // App Config
 app.use(express.static(__dirname + '/public'));
