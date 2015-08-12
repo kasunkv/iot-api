@@ -14,6 +14,16 @@
 				templateUrl: './home/home.html',
 				controller: 'HomeController'
 			})
+			.state('slots', {
+				url: '/slots',
+				templateUrl: './slots/slots.html',
+				controller: 'SlotsController'
+			})
+			.state('stats', {
+				url: '/stats',
+				templateUrl: './stats/stats.html',
+				controller: 'StatsController'
+			})
 			.state('logout', {
 				url: '/logout',
 				controller: 'LoginController'
