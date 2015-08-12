@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var recordModel = new Schema({
     slotId: { type: String },
+    tagNo: { type: String },
     inTime: { type: String },
     outTime: { type: String },
     price: { type: String }

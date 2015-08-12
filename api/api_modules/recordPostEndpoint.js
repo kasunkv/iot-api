@@ -5,6 +5,7 @@ module.exports = function (req, res) {
     console.log(record);
     var newRecord = new Record({
         slotId: record.slotId,
+        tagNo: record.tagNo,
         inTime: new Date().getTime().toString(),
         outTime: '',
         price: ''
