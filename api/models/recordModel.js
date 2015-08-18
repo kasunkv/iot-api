@@ -1,12 +1,17 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+(function () {
+	'use strict';
 
-var recordModel = new Schema({
-    slotId: { type: String },
-    tagNo: { type: String },
-    inTime: { type: String },
-    outTime: { type: String },
-    price: { type: String }
-});
+	var mongoose = require('mongoose');
+	var Schema = mongoose.Schema;
 
-module.exports = mongoose.model('Record', recordModel);
+	var recordModel = new Schema({
+	    slotId: { type: String },
+	    tagNo: { type: String },
+	    inTime: { type: String },
+	    outTime: { type: String },
+	    price: { type: String }
+	});
+
+	module.exports = mongoose.model('Record', recordModel);
+
+})();

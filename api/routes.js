@@ -1,9 +1,9 @@
 (function(){
 	'use strict';
 
-	var recordGetEndpoint = require('./api_modules/recordGetEndpoint');
-	var recordAddEndpoint = require('./api_modules/recordAddEndpoint');
-	var recordPostEndpoint = require('./api_modules/recordPostEndpoint');
+	var recordGetEndpoint = require('./modules/recordGetEndpoint');
+	var recordAddEndpoint = require('./modules/recordAddEndpoint');
+	var recordPostEndpoint = require('./modules/recordPostEndpoint');
 
 	module.exports = function (app) {
 		app.get('/api/get', recordGetEndpoint);
