@@ -1,25 +1,30 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var appRoutes = require('./api/routes.js');
-var cors = require('cors');
+(function () {
+	'use strict';
 
-// Mongoose database connections
-mongoose.connect('mongodb://localhost:27017/tempDB');
+	var express = require('express');
+	var mongoose = require('mongoose');
+	var bodyParser = require('body-parser');
+	var appRoutes = require('./api/routes.js');
+	var cors = require('cors');
 
-var app = express();
-var port = process.env.PORT || 88;
+	// Mongoose database connections
+	mongoose.connect('mongodb://localhost:27017/tempDB');
 
-// App Config
-app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json());
+	var app = express();
+	var port = process.env.PORT || 88;
 
-// CORS
-app.use(cors());
+	// App Config
+	app.use(express.static(__dirname + '/public'));
+	app.use(bodyParser.json());
 
-// Route config
-appRoutes(app);
+	// CORS
+	app.use(cors());
 
-app.listen(port, function () {
-    console.log('API Starting on PORT: ', port);
-});
+	// Route config
+	appRoutes(app);
+
+	app.listen(port, function () {
+	    console.log('API Starting on PORT: ', port);
+	});
+
+})();
