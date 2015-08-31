@@ -3,7 +3,8 @@
 	
 	angular
 		.module('iot_app')
-		.config(configuration);
+		.config(configuration)
+		.constant('API_URL', 'http://localhost:88');
 	
 	function configuration ($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise('/');
@@ -17,7 +18,13 @@
 			.state('slots', {
 				url: '/slots',
 				templateUrl: './slots/slots.html',
-				controller: 'SlotsController'
+				controller: 'SlotsController as vm',
+				resolve: {
+					slotResource: 'slotResource',
+					slots: function (slotResource) {
+						return slotResource.query().$promise;
+					}
+				}
 			})
 			.state('stats', {
 				url: '/stats',
