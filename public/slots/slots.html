@@ -1,42 +1,14 @@
 <h1>Parking Slots</h1>
 <div class="row">
-	<div class="col-md-3 col-sm-3 col-xs-12">
-		<div class="panel panel-success" ng-class="'panel-success'">
+	<div class="col-md-3 col-sm-3 col-xs-12" ng-repeat="slot in vm.slots">
+		<div class="panel panel-success" ng-class="slot.availability == true ? 'panel-success' : 'panel-danger'">
 			<div class="panel-heading">
-				<h3 class="panel-title">Panel success</h3>
+				<h3 class="panel-title" ng-if="slot.availability">Available</h3>
+				<h3 class="panel-title" ng-if="!slot.availability">Occupied</h3>
 			</div>
 			<div class="panel-body">
-				Panel content
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3 col-sm-3 col-xs-12">
-		<div class="panel panel-success" ng-class="'panel-success'">
-			<div class="panel-heading">
-				<h3 class="panel-title">Panel success</h3>
-			</div>
-			<div class="panel-body">
-				Panel content
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3 col-sm-3 col-xs-12">
-		<div class="panel panel-success" ng-class="'panel-success'">
-			<div class="panel-heading">
-				<h3 class="panel-title">Panel success</h3>
-			</div>
-			<div class="panel-body">
-				Panel content
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3 col-sm-3 col-xs-12">
-		<div class="panel panel-success" ng-class="'panel-success'">
-			<div class="panel-heading">
-				<h3 class="panel-title">Panel success</h3>
-			</div>
-			<div class="panel-body">
-				Panel content
+				<p class="lead" ng-if="!slot.availability">Vehicle ID: {{ slot.tagNo }}</p>
+				<p class="lead" ng-if="slot.availability">The Slot is Free</p>
 			</div>
 		</div>
 	</div>
