@@ -6,6 +6,6 @@
         .factory('slotResource', SlotResources);
 
     function SlotResources ($resource, API_URL) {
-        return $resource(API_URL + '/api/slots');
+        return $resource(API_URL + '/api/slot/get');
     }
 })();

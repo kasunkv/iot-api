@@ -8,7 +8,7 @@
 	var cors = require('cors');
 
 	// Mongoose database connections
-	mongoose.connect('mongodb://localhost:27017/tempDB');
+	mongoose.connect('mongodb://iot-admin:iotAdmin99xt@ds051833.mongolab.com:51833/iot-carpark-db');
 
 	var app = express();
 	var port = process.env.PORT || 88;

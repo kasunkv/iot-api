@@ -16,7 +16,7 @@
 
         newRecord.save(function (err) {
             if(err) {
-                return res.status(500).json({message: 'Data POST Failed!'});
+                return res.status(500).json({message: 'Faild to save the parking record.'});
             }
             return res.status(200).json({message: 'Success'});
         });

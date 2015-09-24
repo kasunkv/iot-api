@@ -5,17 +5,26 @@
 		.module('iot_app')
 		.controller('SlotsController', slotsController);
 
-	function slotsController ($interval, slots, slotResource) {
+	slotsController.$inject = ['$scope', '$interval', 'apiResource'];
+	function slotsController ($scope, $interval, apiResource) {
 		var vm  = this;
+			
+		var handler = $interval(function () {
+			getSlots();
+		}, 2000);
 
-		vm.slots = slots;
-		console.log(slots);
-
-		vm.updateSlots = function () {
-			slotResource.query(function (data) {
-				vm.slots = data;
-			});
-		};
+		$scope.$on('$destroy', function () {
+			$interval.cancel(handler);
+		});
+		
+		function getSlots () {
+			apiResource
+				.getParkingSlots()
+				.success(function (data) {
+					vm.slots = data;
+					//console.log(vm.slots);
+				});			
+		}
 	}
 
 })();

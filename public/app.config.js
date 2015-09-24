@@ -18,13 +18,7 @@
 			.state('slots', {
 				url: '/slots',
 				templateUrl: './slots/slots.html',
-				controller: 'SlotsController as vm',
-				resolve: {
-					slotResource: 'slotResource',
-					slots: function (slotResource) {
-						return slotResource.query().$promise;
-					}
-				}
+				controller: 'SlotsController as vm',				
 			})
 			.state('stats', {
 				url: '/stats',
