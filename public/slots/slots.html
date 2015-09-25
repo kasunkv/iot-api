@@ -4,7 +4,7 @@
 	<div class="col-md-3 col-sm-3 col-xs-12" ng-repeat="slot in vm.slots">
 		<div class="panel panel-success" ng-class="slot.availability == true ? 'panel-success' : 'panel-danger'">
 			<div class="panel-heading">
-				<h3 class="panel-title" ng-if="slot.availability">Available <span class="pull-right" style="font-weight: bold;">{{ slot.slotId }}</span></h3>
+				<h3 class="panel-title" ng-if="slot.availability">Available <span class="pull-right" style="font-weight: bold;">Slot {{ slot.slotId }}</span></h3>
 				<h3 class="panel-title" ng-if="!slot.availability">Occupied</h3>
 			</div>
 			<div class="panel-body">
