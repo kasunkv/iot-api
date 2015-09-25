@@ -11,7 +11,7 @@
 			
 		var handler = $interval(function () {
 			getSlots();
-		}, 2000);
+		}, 1500);
 
 		$scope.$on('$destroy', function () {
 			$interval.cancel(handler);

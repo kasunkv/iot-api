@@ -1,0 +1,14 @@
+<h1>Parking Stats</h1>
+<hr>
+<div class="row">
+	<div class="col-md-3">
+		<div class="btn-group-vertical" style="margin-top: 75px;">
+		    <a ui-sref="records.all" ui-sref-active="active" class="btn btn-success  btn-lg btn-block">All Billing Records</a>
+		    <a ui-sref="records.tag" ui-sref-active="active" class="btn btn-success btn-lg btn-block">Filter By Tag ID</a>
+		    <a ui-sref="records.slot" ui-sref-active="active" class="btn btn-success btn-lg btn-block">Filter By Slot ID</a>
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div ui-view></div>
+	</div>
+</div>

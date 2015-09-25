@@ -20,7 +20,10 @@
 					
 					// Prep update
 					var searchOptions = { slotId: statusUpdate.slotId };
-					var updateData = { availability: false };
+					var updateData = { 
+						availability: false,
+						tagId: statusUpdate.tagId
+					};
 					var updateOptions = {};
 
 
@@ -37,7 +40,10 @@
 
 					// Prep update
 					var searchOptions = { slotId: statusUpdate.slotId };
-					var updateData = { availability: true };
+					var updateData = { 
+						availability: true,
+						tagId: null
+					};
 					var updateOptions = {};
 
 

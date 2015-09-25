@@ -4,11 +4,11 @@
 	<div class="col-md-3 col-sm-3 col-xs-12" ng-repeat="slot in vm.slots">
 		<div class="panel panel-success" ng-class="slot.availability == true ? 'panel-success' : 'panel-danger'">
 			<div class="panel-heading">
-				<h3 class="panel-title" ng-if="slot.availability">Available</h3>
+				<h3 class="panel-title" ng-if="slot.availability">Available <span class="pull-right" style="font-weight: bold;">{{ slot.slotId }}</span></h3>
 				<h3 class="panel-title" ng-if="!slot.availability">Occupied</h3>
 			</div>
 			<div class="panel-body">
-				<p class="lead" ng-if="!slot.availability">Vehicle ID: {{ slot.tagNo }}</p>
+				<p class="lead" ng-if="!slot.availability">Vehicle Tag: {{ slot.tagId }}</p>
 				<p class="lead" ng-if="slot.availability">The Slot is Free</p>
 			</div>
 		</div>

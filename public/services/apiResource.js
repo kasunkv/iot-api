@@ -10,7 +10,8 @@
 	function apiResource ($http, API_URL) {
 		return {
 			getParkingSlots: getParkingSlots,
-			getBillingForVehicle: getBillingForVehicle
+			getBillingForVehicle: getBillingForVehicle,
+			getBillingRecords: getBillingRecords
 		};	
 
 		function getParkingSlots() {
@@ -19,6 +20,10 @@
 
 		function getBillingForVehicle (tagNo) {
 			return $http.get(API_URL + '/api/record/tag/' + tagNo);				
+		}
+
+		function getBillingRecords () {
+			return $http.get(API_URL + '/api/record/get');				
 		}
 	}
 

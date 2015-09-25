@@ -20,11 +20,24 @@
 				templateUrl: './slots/slots.html',
 				controller: 'SlotsController as vm',				
 			})
-			.state('stats', {
-				url: '/stats',
-				templateUrl: './stats/stats.html',
-				controller: 'StatsController'
+			.state('records', {
+				// abstract: true,
+				url: '/records',
+				templateUrl: './records/records.html',
+				controller: 'RecordController as vm'
 			})
+			.state('records.all', {
+				url: '/all',
+				templateUrl: './records/records.all.html'
+			})
+			.state('records.tag', {
+				url: '/tag',
+				templateUrl: './records/records.tag.html'
+			})
+			.state('records.slot', {
+				url: '/slot',
+				templateUrl: './records/records.slot.html'
+			})			
 			.state('logout', {
 				url: '/logout',
 				controller: 'LoginController'
