@@ -1,6 +1,8 @@
 (function(){
 	'use strict';
 
+	var cors = require('cors');
+
 	var recordGetEndpoint = require('./modules/recordGetEndpoint');
 	var recordAddEndpoint = require('./modules/recordAddEndpoint');
 	var recordPostEndpoint = require('./modules/recordPostEndpoint');
@@ -11,14 +13,14 @@
 
 	module.exports = function (app) {
 		/* Slots */
-		app.get('/api/slot/get', slotGetEndpoint);
-		app.get('/api/slot/add', slotAddEndpoint);
-		app.post('/api/slot/post', slotPostEndpoint);
+		app.get('/api/slot/get', cors(), slotGetEndpoint);
+		app.get('/api/slot/add', cors(), slotAddEndpoint);
+		app.post('/api/slot/post', cors(), slotPostEndpoint);
 
 		/* Records */
-		app.get('/api/record/get', recordGetEndpoint);
-		app.get('/api/record/add', recordAddEndpoint);
-		app.post('/api/record/post', recordPostEndpoint);
+		app.get('/api/record/get', cors(), recordGetEndpoint);
+		app.get('/api/record/add', cors(), recordAddEndpoint);
+		app.post('/api/record/post', cors(), recordPostEndpoint);
 		
 		/* Updates */
 		app.get('/api/update', updateEndpoint);
