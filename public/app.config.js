@@ -4,7 +4,7 @@
 	angular
 		.module('iot_app')
 		.config(configuration)
-		.constant('API_URL', 'http://localhost:88');
+		.constant('API_URL', 'http://172.20.4.58:88');
 	
 	function configuration ($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise('/');
