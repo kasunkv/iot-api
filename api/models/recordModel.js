@@ -6,7 +6,7 @@
 
 	var recordModel = new Schema({
 	    slotId: { type: String },
-	    tagNo: { type: String },
+	    tagId: { type: String },
 	    inTime: { type: String },
 	    outTime: { type: String },
 	    price: { type: String }

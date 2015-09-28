@@ -5,7 +5,7 @@
 
     module.exports = function (req, res) {
         var record = req.body;
-        console.log(record);
+        //console.log(record);
         var newRecord = new Record({
             slotId: record.slotId,
             tagNo: record.tagNo,

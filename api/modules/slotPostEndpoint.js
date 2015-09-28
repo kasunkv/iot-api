@@ -5,7 +5,7 @@
 
 	module.exports = function(req, res) {
 		var slot = req.body;
-		console.log(slot);
+		//console.log(slot);
 
 		var newSlot = new Slot({
 			slotId: slot.slotId,

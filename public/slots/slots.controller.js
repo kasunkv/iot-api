@@ -22,7 +22,6 @@
 				.getParkingSlots()
 				.success(function (data) {
 					vm.slots = data;
-					//console.log(vm.slots);
 				});			
 		}
 	}

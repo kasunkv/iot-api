@@ -6,15 +6,14 @@
 
 	module.exports = function(req, res) {
 		var statusUpdate= req.query;
-		console.log(statusUpdate);
+		console.log('Update From Carpark...', statusUpdate);
 		
-		// find the correct slot
 		Slot.findOne({
 			slotId: statusUpdate.slotId
 		}, function (err, existingSlot){
 			if (err) { return res.status(500).send({ message: 'Error, searching for slots' }); }
 
-			if (existingSlot) {
+			if (existingSlot) { // If the slot exists then the request is from one of the empty slots. Create a new record.
 
 				if (existingSlot.availability) { // if slot available mark slot not available, create a new record
 					
@@ -31,31 +30,41 @@
 						if (err) {
 							return res.status(500).json({ message: 'Error! Updating Slot.' });
 						}
-
 						// create the new bill record
 						createBillingRecord(statusUpdate, res);
 					});
+				} 
 
-				} else { // else (not available),mark slot available, complete the record, calculate price, send push notification
+			} else { // if the record does not exists, the the request is from the gate. Complete the bill
 
-					// Prep update
-					var searchOptions = { slotId: statusUpdate.slotId };
-					var updateData = { 
-						availability: true,
-						tagId: null
-					};
-					var updateOptions = {};
+				Record.find({
+					tagId: statusUpdate.tagId
+				}, function (err, records) {
+					if (err) { return res.status(500).send({ message: 'Error, searching for records' }); }
 
+					var inCompleteRecord = records.pop();
+					
+					Slot.findOne({
+						slotId: inCompleteRecord.slotId
+					}, function (err, slot) {
+						if (err) { return res.status(500).send({ message: 'Error, searching for slot' }); }
 
-					Slot.update(searchOptions, updateData, updateOptions, function (err, affected) {
-						if (err) {
-							return res.status(500).json({ message: 'Error! Updating Slot.' });
-						}
+						var searchOptions = { slotId: slot.slotId };
+						var updateData = { 
+							availability: true,
+							tagId: null
+						};
+						var updateOptions = {};
 
-						// create the new bill record
-						finalizeBillingRecord(statusUpdate, res);
+						Slot.update(searchOptions, updateData, updateOptions, function (err, affected) {
+							if (err) {
+								return res.status(500).json({ message: 'Error! Updating Slot.' });
+							}
+							// create the new bill record
+							finalizeBillingRecord(statusUpdate, res);
+						});
 					});
-				}
+				});
 			}
 		});
 	};	
@@ -64,7 +73,7 @@
 		console.log('Inside Create Billing Record');
 		var newRecord = new Record({
             slotId: slotData.slotId,
-            tagNo: slotData.tagNo,
+            tagId: slotData.tagId,
             inTime: new Date().getTime().toString(),
             outTime: '',
             price: ''
